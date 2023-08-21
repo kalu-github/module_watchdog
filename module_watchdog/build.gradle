@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    compileSdkVersion 33
+    buildToolsVersion "33.0.2"
+    namespace 'lib.kalu.monitor'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        buildTypes {
+            release {
+                zipAlignEnabled false
+                shrinkResources false
+                minifyEnabled false
+                consumerProguardFiles 'proguard-rules.pro'
+            }
+            debug {
+                zipAlignEnabled false
+                shrinkResources false
+                minifyEnabled false
+                consumerProguardFiles 'proguard-rules.pro'
+            }
+        }
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            def type = new String(buildType.name).toLowerCase()
+            def time = new Date().format("yyyyMMdd", TimeZone.getTimeZone("GMT+08"))
+            outputFileName = "lib_watchdog_v1.0_" + type + "_" + time + ".aar"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly('androidx.appcompat:appcompat:1.5.1')
+    api files('libs/activation.jar')
+    api files('libs/additionnal.jar')
+    api files('libs/commons-io-2.5.jar')
+    api files('libs/mail.jar')
+}

@@ -1,0 +1,3 @@
+-keep class lib.kalu.monitor.MonitorProvider
+-keep class * extends lib.kalu.monitor.MonitorProvider
+-keep public class * extends lib.kalu.monitor.MonitorProvider
