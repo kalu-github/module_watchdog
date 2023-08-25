@@ -222,7 +222,7 @@ public class WatchdogProvider extends ContentProvider {
                                         stringBuilder.append("空闲CPU：");
                                         stringBuilder.append(cpuUseAlive);
                                         stringBuilder.append("\n");
-                                        stringBuilder.append("使用CPU：");
+                                        stringBuilder.append("占用CPU：");
                                         stringBuilder.append(cpuUseApp);
                                         String s = stringBuilder.toString();
                                         ViewGroup floatGroup = decorGroup.findViewById(R.id.common_floating_root);
