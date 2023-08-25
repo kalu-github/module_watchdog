@@ -97,7 +97,7 @@ public class WatchdogProvider extends ContentProvider {
                 @Override
                 public void run() {
                     while (true) {
-                        SystemClock.sleep(100);
+                        SystemClock.sleep(200);
                         NetUtil.update(context);
                         CpuUtil.update(context, myPid, myUid);
                         RamUtil.update(context, myUid);
@@ -216,11 +216,11 @@ public class WatchdogProvider extends ContentProvider {
                                         textView.setText(s);
                                     } else if ("cpu".equals(type)) {
                                         // 总共内存
+                                        String cpuUseAlive = intent.getStringExtra("cpuUseAlive");
                                         String cpuUseApp = intent.getStringExtra("cpuUseApp");
-                                        String cpuUseSystem = intent.getStringExtra("cpuUseSystem");
                                         StringBuilder stringBuilder = new StringBuilder();
-                                        stringBuilder.append("剩余CPU：");
-                                        stringBuilder.append(cpuUseSystem);
+                                        stringBuilder.append("空闲CPU：");
+                                        stringBuilder.append(cpuUseAlive);
                                         stringBuilder.append("\n");
                                         stringBuilder.append("使用CPU：");
                                         stringBuilder.append(cpuUseApp);

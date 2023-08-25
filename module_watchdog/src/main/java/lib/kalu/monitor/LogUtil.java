@@ -4,7 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
- final class LogUtil {
+final class LogUtil {
 
     private static String TAG = "watch_sdk";
 
