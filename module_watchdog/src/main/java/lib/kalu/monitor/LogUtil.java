@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
  final class LogUtil {
 
-    private static String TAG = "emmagee_sdk";
+    private static String TAG = "watch_sdk";
 
     public static void logE(@NonNull String s) {
         logE(s, null);

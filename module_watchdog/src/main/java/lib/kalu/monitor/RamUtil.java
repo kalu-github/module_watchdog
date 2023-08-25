@@ -59,6 +59,11 @@ final class RamUtil {
                 String processName = runningAppProcessInfo.processName;
                 int pid = runningAppProcessInfo.pid;
                 int[] pids = {pid};
+                /**
+                 * TotalPss（整体内存，native+dalvik+共享）
+                 * nativePss （native内存）
+                 * dalvikPss （java内存 OOM原因）
+                 */
                 Debug.MemoryInfo[] processMemoryInfo = activityManager.getProcessMemoryInfo(pids);
 //                processMemoryInfo[0].getTotalSharedDirty();
                 int totalPss = processMemoryInfo[0].getTotalPss() / 1024;
